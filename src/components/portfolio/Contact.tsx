@@ -12,6 +12,8 @@ const schema = z.object({
   message: z.string().trim().min(1, "Message can't be empty").max(1000, "Message is too long (max 1000 chars)"),
 });
 
+type ContactPayload = { name: string; email: string; message: string };
+
 export const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Partial<Record<keyof typeof form, string>>>({});
@@ -33,7 +35,7 @@ export const Contact = () => {
     }
 
     setLoading(true);
-    const { error } = await supabase.from("contact_messages").insert([parsed.data]);
+    const { error } = await supabase.from("contact_messages").insert(parsed.data as ContactPayload);
     setLoading(false);
 
     if (error) {
