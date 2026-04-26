@@ -56,12 +56,24 @@ export const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: (i % 2) * 0.1 }}
-              className={`group relative rounded-2xl border border-dark-border bg-dark-muted/40 p-8 hover:border-${p.accent}/50 transition-all hover:-translate-y-1`}
+              className={`group relative rounded-2xl border border-dark-border bg-dark-muted/40 p-8 transition-all hover:-translate-y-1 ${
+                p.accent === "accent" ? "hover:border-accent/50" : "hover:border-mint/50"
+              }`}
             >
-              <div className={`absolute top-0 right-0 w-24 h-24 rounded-bl-2xl rounded-tr-2xl bg-${p.accent}/10 transition-all group-hover:bg-${p.accent}/20`} />
+              <div
+                className={`absolute top-0 right-0 w-24 h-24 rounded-bl-2xl rounded-tr-2xl transition-all ${
+                  p.accent === "accent"
+                    ? "bg-accent/10 group-hover:bg-accent/20"
+                    : "bg-mint/10 group-hover:bg-mint/20"
+                }`}
+              />
               <div className="relative">
                 <div className="flex items-start justify-between mb-6">
-                  <span className={`font-mono text-xs uppercase tracking-widest text-${p.accent}`}>
+                  <span
+                    className={`font-mono text-xs uppercase tracking-widest ${
+                      p.accent === "accent" ? "text-accent" : "text-mint"
+                    }`}
+                  >
                     {p.category}
                   </span>
                   <ArrowUpRight className="w-5 h-5 text-surface-light/40 group-hover:text-surface-light group-hover:rotate-12 transition-all" />
