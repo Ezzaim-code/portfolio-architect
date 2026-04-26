@@ -15,7 +15,13 @@ export const About = () => {
         <SectionHeader
           number="01"
           label="About"
-          title={<>A builder at the intersection of <em className="font-display italic text-accent">software</em> and <em className="font-display italic text-accent">intelligence</em>.</> as unknown as string}
+          title={
+            <>
+              A builder at the intersection of{" "}
+              <em className="font-display italic text-accent not-italic">software</em>{" "}
+              and <em className="font-display italic text-accent not-italic">intelligence</em>.
+            </>
+          }
         />
 
         <div className="grid lg:grid-cols-12 gap-12 items-start">

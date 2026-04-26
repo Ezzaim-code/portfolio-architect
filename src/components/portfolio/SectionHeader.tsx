@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
+import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 interface Props {
   number: string;
   label: string;
-  title: string;
+  title: ReactNode;
   dark?: boolean;
 }
 
