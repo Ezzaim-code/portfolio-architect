@@ -33,7 +33,7 @@ export const Contact = () => {
     }
 
     setLoading(true);
-    const { error } = await supabase.from("contact_messages").insert(parsed.data);
+    const { error } = await supabase.from("contact_messages").insert([parsed.data]);
     setLoading(false);
 
     if (error) {
